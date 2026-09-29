@@ -1,0 +1,37 @@
+sku,name,category,price,quantity
+1001,MILK 2L,dairy,$5.49,24
+1002,eggs large 12ct , Dairy,4.99,40
+1003,Butter 454g,DAIRY ,$6.79,18
+1004,cheddar cheese 400g,dairy,8.99,
+1005,Yogurt Plain 650g,dairy,,22
+1006,white bread,BAKERY,$3.49,30
+1007,  Whole Wheat Bread,bakery,3.79,26
+1008,BANNOCK MIX 1KG,Bakery,$7.49,12
+1009,Hamburger Buns 8ct,bakery ,3.99,-5
+1010,bananas per lb,produce,$1.29,60
+1011,Apples Gala per lb,PRODUCE,2.49,45
+1012,potatoes 10lb,produce,$8.99,14
+1013,Carrots 2lb ,produce,3.49,25
+1014,ONIONS 3LB,Produce,,19
+1015,Frozen Peas 750g,frozen,$4.49,33
+1016,frozen pizza,Frozen ,7.99,16
+1017,Ground Beef 1lb,FROZEN,$9.49,28
+1018,Chicken Breasts 1kg,frozen,14.99,-2
+1019,ice cream vanilla 2l,frozen,$8.49,12
+1020,Paper Towels 2 Roll,household,4.99,35
+1021,  dish soap 500ml,Household,$4.29,27
+1022,LAUNDRY DETERGENT 2L,household,15.99,
+1023,Toilet Paper 12 Roll,HOUSEHOLD,$13.49,22
+1024,garbage bags 20ct,household ,6.99,17
+1025,Potato Chips 200g,snacks,$4.99,50
+1026,granola bars 6ct,Snacks,4.49,38
+1027,Crackers 300g,SNACKS,$3.99,31
+1028,Chocolate Bar,snacks,1.79,80
+1029,instant noodles ,snacks,$1.29,100
+1030,Trail Mix 400g,Snacks,7.49,13
+1001,milk 2l ,Dairy,5.49,30
+1006,White Bread,bakery,$3.59,28
+1017,ground beef 1lb,frozen,9.49,20
+1025,POTATO CHIPS 200G,snacks,$4.99,45
+,Mystery Item,snacks,2.99,10
+1031,Canned Beans 398ml,pantry,N/A,15
