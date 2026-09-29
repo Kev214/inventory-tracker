@@ -4,3 +4,8 @@
 - **Asked:** Generate a clean list of grocery items
 - **Got:** A CSV file of data for grocery items
 - **Changes:** Data was clean, so I added inconsistencies (incosistent casting, $ signs, duplicate sku's, trailing and blank spaces)
+
+## Entry 2: Learning how SQL inserts work
+- **Asked:** How does adding data to SQL work
+- **Got:** An explantion of tables, rows and reference examples
+- **Changes:** Used the example knowledge to help me adopt my code

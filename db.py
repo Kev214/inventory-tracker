@@ -19,3 +19,19 @@ def init_db(conn):
     """)
     conn.commit()
 
+def add_item(conn, sku, name, category, price, quantity):
+    conn.execute(
+        "INSERT INTO items (sku, name, category, price, quantity) "
+        "VALUES (?,?,?,?,?)",
+        (sku, name, category, price, quantity),
+    )
+    conn.commit()
+
+#finds every column from the row whose sku matches
+#and fetchone() returns the first matching row or NONE if it does not exist
+def get_item(conn, sku):
+    curr = conn.execute(
+        "SELECT * FROM items WHERE sku =?",
+        (sku,), 
+    )
+    return curr.fetchone()
