@@ -7,4 +7,15 @@ def get_connection(db_path=DB_PATH):
     conn.row_factory = sqlite3.Row
     return conn
 
+def init_db(conn):
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS items(
+            sku TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            category TEXT,
+            price REAL NOT NULL,
+            quantity INTEGER NOT NULL DEFAULT 0
+        )
+    """)
+    conn.commit()
 
