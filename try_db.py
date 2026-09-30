@@ -29,4 +29,10 @@ print(db.get_item(conn,"9001")["quantity"])
 print(db.update_price(conn,"9001", 6.00))
 print(db.get_item(conn,"9001")["price"])
 
+#testing to see if search_item is working
+db.add_item(conn, "9002", "white bread", "bakery", 3.49, 30)
+for term in ["milk", "br", "MI"]:
+    result = db.search_item(conn,term)
+    print(term, "->", [r["name"] for r in result])
+
 

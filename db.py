@@ -51,3 +51,14 @@ def update_price(conn, sku, new_price):
     )
     conn.commit()
     return curr.rowcount > 0
+
+def search_item(conn, term):
+    pattern = f"%{term}%"
+    curr = conn.execute(
+        "SELECT name "
+        "FROM items "
+        "WHERE name LIKE ? "
+        "ORDER BY name",
+        (pattern,),
+    )
+    return curr.fetchall()
