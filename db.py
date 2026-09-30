@@ -35,3 +35,19 @@ def get_item(conn, sku):
         (sku,), 
     )
     return curr.fetchone()
+
+def update_quantity(conn, sku, new_quantity):
+    curr = conn.execute(
+        "UPDATE items SET quantity = ? WHERE sku = ?",
+        (new_quantity,sku)
+    )
+    conn.commit()
+    return curr.rowcount > 0
+
+def update_price(conn, sku, new_price):
+    curr = conn.execute(
+        "UPDATE items SET price = ? WHERE sku = ?",
+        (new_price,sku)
+    )
+    conn.commit()
+    return curr.rowcount > 0
