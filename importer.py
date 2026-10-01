@@ -73,3 +73,27 @@ def load_items(conn, items):
             failed.append((item["sku"], str(e)))
 
     return inserted, failed
+
+def main():
+    conn = db.get_connection()
+    db.init_db(conn)
+
+    #clean up the db so we can actually check for inserts
+    conn.execute("DELETE FROM items")
+    conn.commit()
+
+    clean, rejected, duplicates = read_clean_rows("data/messy_inventory.csv")
+    inserted, failed = load_items(conn,clean)
+
+    print("Rows read: ", len(clean) + len(rejected) + duplicates)
+    print("Rejected: ", len(rejected))
+    for row, reason in rejected:
+        print(" ", row["sku"] or "(blank)", "->", reason)
+    print("Duplicated: ", duplicates)
+    print("Inserted: ", inserted)
+    if failed:
+        print("Failed inserts: ", failed)
+
+if __name__ == "__main__":
+    main()
+    
