@@ -1,3 +1,5 @@
+import csv
+
 #Removes trailing and leading empty spaces
 def clean_text(s):
     return s.strip()
@@ -23,7 +25,7 @@ def clean_quantity(s):
         raise ValueError("Negative quantity")
     return q
 
-
+#this function cleans an entire row 
 def clean_row(row):
     sku = clean_text(row["sku"])
     if sku == "":
@@ -36,3 +38,24 @@ def clean_row(row):
         "price": clean_price(row["price"]),
         "quantity": clean_quantity(row["quantity"])
     }
+
+def read_clean_rows(path):
+    clean = {}
+    rejected = []
+    duplicates = 0
+
+    with open(path, "r") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            try:
+                cleaned = clean_row(row)
+            except ValueError as e:
+                rejected.append((row,str(e)))
+                continue
+
+            if cleaned["sku"] in clean:
+                duplicates += 1
+
+            clean[cleaned["sku"]] = cleaned
+
+    return clean, rejected, duplicates
