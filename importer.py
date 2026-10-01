@@ -22,3 +22,17 @@ def clean_quantity(s):
     if q < 0:
         raise ValueError("Negative quantity")
     return q
+
+
+def clean_row(row):
+    sku = clean_text(row["sku"])
+    if sku == "":
+        raise ValueError("Empty SKU")
+
+    return {
+        "sku" : sku,
+        "name": clean_name(row["name"]),
+        "category": clean_name(row["category"]),
+        "price": clean_price(row["price"]),
+        "quantity": clean_quantity(row["quantity"])
+    }
