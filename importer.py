@@ -1,4 +1,5 @@
 import csv
+import db
 
 #Removes trailing and leading empty spaces
 def clean_text(s):
@@ -59,3 +60,16 @@ def read_clean_rows(path):
             clean[cleaned["sku"]] = cleaned
 
     return clean, rejected, duplicates
+
+def load_items(conn, items):
+    inserted = 0
+    failed = []
+
+    for item in items.values():
+        try:
+            db.add_item(conn, item["sku"], item["name"], item["category"], item["price"], item["quantity"])
+            inserted += 1
+        except ValueError as e:
+            failed.append((item["sku"], str(e)))
+
+    return inserted, failed
