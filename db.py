@@ -62,3 +62,18 @@ def search_item(conn, term):
         (pattern,),
     )
     return curr.fetchall()
+
+def get_low_stock(conn, cutoff):
+    curr = conn.execute(
+        "SELECT * "
+        "FROM items "
+        "WHERE quantity < ? "
+        "ORDER BY quantity ASC",
+        (cutoff,),
+    )
+    return curr.fetchall()
+
+def get_all_items(conn):
+    curr = conn.execute("SELECT * FROM items ORDER BY sku")
+    return curr.fetchall()
+

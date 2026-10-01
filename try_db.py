@@ -35,4 +35,9 @@ for term in ["milk", "br", "MI"]:
     result = db.search_item(conn,term)
     print(term, "->", [r["name"] for r in result])
 
+#testing if get_low_stock is working properly
+print([(r["name"], r["quantity"]) for r in db.get_low_stock(conn, 40)])
+print([(r["name"], r["quantity"]) for r in db.get_low_stock(conn, 10)])
+print([r["sku"] for r in db.get_all_items(conn)])
+
 
