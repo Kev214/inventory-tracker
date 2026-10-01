@@ -41,3 +41,5 @@ print([(r["name"], r["quantity"]) for r in db.get_low_stock(conn, 10)])
 print([r["sku"] for r in db.get_all_items(conn)])
 
 
+
+

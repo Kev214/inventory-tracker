@@ -19,13 +19,17 @@ def init_db(conn):
     """)
     conn.commit()
 
+#try catch block prevents any duplicate sku entry being added 
 def add_item(conn, sku, name, category, price, quantity):
-    conn.execute(
-        "INSERT INTO items (sku, name, category, price, quantity) "
-        "VALUES (?,?,?,?,?)",
-        (sku, name, category, price, quantity),
-    )
-    conn.commit()
+    try:
+        conn.execute(
+            "INSERT INTO items (sku, name, category, price, quantity) "
+            "VALUES (?,?,?,?,?)",
+            (sku, name, category, price, quantity),
+        )
+        conn.commit()
+    except sqlite3.IntegrityError:
+        raise ValueError(f"SKU {sku} already exists")
 
 #finds every column from the row whose sku matches
 #and fetchone() returns the first matching row or NONE if it does not exist
