@@ -14,3 +14,8 @@
 - **Asked:** How to understand error when building database, and general erros in my code
 - **Got:** explantion on what might have caused it and how we can fix it
 - **Changes:** Used try-except blocks and raised Value Errors
+
+## Entry 4: Learning Streamlit adn building the inventory UI
+- **Asked:** How Streamlit works and to provide me step-by-step tutorial
+- **Got:** Explanation of Streamlit's core ideas, like converting database into rows into a pandas DataFrame
+- **Changes:** Converted sqlite.Row to a dict so pandas could build a table
