@@ -9,3 +9,8 @@
 - **Asked:** How does adding data to SQL work
 - **Got:** An explantion of tables, rows and reference examples
 - **Changes:** Used the example knowledge to help me adopt my code
+
+## Entry 3: Learning to read and handle errors
+- **Asked:** How to understand error when building database, and general erros in my code
+- **Got:** explantion on what might have caused it and how we can fix it
+- **Changes:** Used try-except blocks and raised Value Errors
