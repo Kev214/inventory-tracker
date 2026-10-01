@@ -19,3 +19,8 @@
 - **Asked:** How Streamlit works and to provide me step-by-step tutorial
 - **Got:** Explanation of Streamlit's core ideas, like converting database into rows into a pandas DataFrame
 - **Changes:** Converted sqlite.Row to a dict so pandas could build a table
+
+## Entry 4: How to add sliders in streamlit
+- **Asked:** How do i add functinal sliders in streamlit
+- **Got:** Showed me a good code example for adding a slider to the webpage
+- **Changes:** Used that information to adjust the slider so that we can show low-stock table on the webpage

@@ -19,3 +19,14 @@ else:
 # Lets get the data and show it 
 df = pd.DataFrame([dict(r) for r in rows])
 st.dataframe(df)
+
+st.subheader("Low Stock")
+cutoff = st.slider("Show items in stock below", 0, 100, 15)
+
+low = db.get_low_stock(conn, cutoff)
+
+if low:
+    low_df = pd.DataFrame([dict(r) for r in low])
+    st.dataframe(low_df)
+else:
+    st.success("Nothing below the cutoff")
