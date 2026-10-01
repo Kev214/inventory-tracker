@@ -47,3 +47,25 @@ if st.button("Update"):
         st.rerun()
     else:
         st.error("SKU not found")
+
+st.subheader("Add new item")
+
+with st.form("add_item_form"):
+    new_sku = st.text_input("SKU")
+    new_name = st.text_input("Name")
+    new_category = st.text_input("Category")
+    new_price = st.number_input("Price", min_value=0.0, format = "%.2f")
+    new_quantity = st.number_input("Quantity", min_value=0)
+    submitted = st.form_submit_button("Add Item")
+
+if submitted:
+    if not new_sku.strip() or not new_name.strip():
+        st.error("SKU and name are required")
+    else:
+        try:
+            db.add_item(conn,new_sku.strip(),new_name.strip(),new_category.strip(),float(new_price),int(new_quantity))
+            st.session_state["flash"] = f"Added {new_sku.strip()}"
+            st.rerun()
+        except ValueError as e:
+            st.error(str(e))
+
